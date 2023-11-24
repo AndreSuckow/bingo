@@ -140,7 +140,7 @@ export default function Room() {
           {displayChat("on-game")}
           <section className={styles.main_play}>
             <p> {name2}</p>
-            <p> 5 ultimos sorteados </p>
+            <p> 5 últimas bolas sorteadas </p>
             <BingoDisplay
               type="player"
               max={99} // ANDRÉ: mostra as últimas 5 bolas para o player

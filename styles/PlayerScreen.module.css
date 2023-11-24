@@ -88,7 +88,7 @@
 /* Play Room */
 
 .main_play {
-    background-color: #E5E5E5;
+    background-image: url("../public/background.png");
     min-height: 100vh;
     padding: 4rem 0;
     flex: 1;
@@ -99,7 +99,7 @@
 }
 
 .btn_bingo {
-    background-color: #FE7F2D;
+    background-color: #c11f5a;
     margin-top: 40px;
     width: 200px;
     height: 80px;

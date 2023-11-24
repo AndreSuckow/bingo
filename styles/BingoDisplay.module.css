@@ -9,7 +9,7 @@
     width: 70px;
     height: 70px;
     color: #E5E5E5;
-    background-color: #262b29;
+    background-color: #c11f5a;
     border-radius: 35px;
     margin: 5px;
     float: left;
@@ -18,21 +18,37 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: radial-gradient(circle at top, #eae7e7, 20% ,#c11f5a);
+    -webkit-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+    box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+}
+
+.first_ball p {
+    font-weight: 800;
 }
 
 .balls {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     color: #E5E5E5;
-    background-color: #262b29;
-    border-radius: 25px;
-    margin: 14px 5px 0 5px;
+    background-color: #c11f5a;
+    border-radius: 35px;
+    margin: 5px;
     float: left;
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-image: radial-gradient(circle at top, #eae7e7, 20% ,#c11f5a);
+    -webkit-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+    box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+}
+
+.balls p {
+    font-weight: 800;
 }
 
 
