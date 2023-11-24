@@ -17,7 +17,9 @@ export default function BingoDisplay(props) {
           )}
 
           {props.numbers &&
-            props.numbers.slice(1, 5).map((el, idx) => {
+            props.numbers.slice(1, 3).map((el, idx) => {
+              // ANDRÉ: troca a quantidade de números visualizador no sorteio para o HOST
+              // valor inicial: 1, 5
               return (
                 <div className={styles.four_main_ball} key={idx}>
                   <p> {el} </p>

@@ -18,7 +18,7 @@ let balls = {
 
 export default function Host() {
   const router = useRouter();
-  const { host, qtdBalls, gameOption } = router.query;
+  const { host, qtdBalls } = router.query;
   const [path, setPath] = React.useState("wait");
   const [players, setPlayers] = React.useState([]);
   const [chat, setChat] = React.useState([]);
@@ -36,11 +36,19 @@ export default function Host() {
       socket = io();
 
       socket.on("connect", () => {
-        console.log("connected");
+        console.log("%cHost Conectado. Sala Criada", "color: blue;");
+        console.log(
+          "%c--> Aguardando usuários entrarem na sala...",
+          "color: blue;"
+        );
       });
 
       socket.on("get-chat", (msg) => {
         setChat((prev) => [...prev, msg]);
+      });
+
+      socket.on("player-with-cartela", (msg) => {
+        console.log("HOST JA TENHO A CARTELA", msg);
       });
 
       socket.on("get-new-player", (msg) => {
@@ -49,6 +57,12 @@ export default function Host() {
             Number(qtdBalls),
             old.filter((el) => el.cartela)
           );
+
+          console.log("cartela get-new-player", {
+            to: msg.id,
+            cartela: cartela,
+          });
+
           socket.emit("send-players", {
             room: host,
             msg: [...old.map((el) => el.name), msg.name],
@@ -57,7 +71,7 @@ export default function Host() {
           socket.emit("send-chat", {
             room: host,
             name: "newPlayer",
-            msg: `${msg.name} entrou.`,
+            msg: `${msg.name} entrou e vai disputar o bingo!`,
           });
           return [...old, { name: msg.name, id: msg.id, cartela: cartela }];
         });
@@ -93,18 +107,21 @@ export default function Host() {
     case "wait":
       return (
         <>
-          <p>
-            Sala: {host} - quantidade de bolas : {qtdBalls} - opção de jogo:{" "}
-            {gameOption}
-          </p>
-          {players.map((e, idx) => {
-            return (
-              <div key={idx}>
-                <p>{e.name}</p>
-              </div>
-            );
-          })}
-          <button onClick={startGame}>Start game</button>
+          <div className={styles.game_profile}>
+            <p>
+              Sala: {host} - quantidade de bolas : {qtdBalls}
+            </p>
+            {players.map((e, idx) => {
+              return (
+                <div key={idx}>
+                  <p>{e.name}</p>
+                </div>
+              );
+            })}
+            <button onClick={startGame}>Start Game!</button>
+          </div>
+          <div className={styles.game_profile_start}></div>
+
           <ChatDisplay name={"host"} content={chat} btnFunction={handleChat} />
         </>
       );
@@ -119,7 +136,7 @@ export default function Host() {
           />
           <section className={styles.main_play}>
             <div className={styles.div_grid_2}>
-              <p> Jogo iniciado </p>
+              <p> Jogo iniciado! </p>
               <button onClick={riffle}> sortear </button>
               <BingoDisplay numbers={sort} type="main" />
             </div>

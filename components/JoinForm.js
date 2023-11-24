@@ -1,9 +1,12 @@
 import * as React from "react";
+import { useRouter } from "next/router";
 
 //styles
 import styles from "../styles/JoinForm.module.css";
 
 export default function JoinForm(props) {
+  const router = useRouter();
+  const { godMode } = router.query;
   const [name2, setName2] = React.useState("");
   const [room, setRoom] = React.useState("");
   const [qtdBalls, setQtdBalls] = React.useState(99);
@@ -23,7 +26,7 @@ export default function JoinForm(props) {
             type="text"
           ></input>
           <button
-            className={`${styles.btn_enter} ${styles.bgc_green}`}
+            className={`${styles.btn_enter} ${styles.red_color}`}
             onClick={() => props.btnFunction(props.room, name2)}
           >
             Entrar
@@ -33,7 +36,7 @@ export default function JoinForm(props) {
     case "home":
       return (
         <>
-          <label className={styles.label}>Id da Sala</label>
+          <label className={styles.label}>ID da Sala</label>
           <input
             autoComplete="off"
             className={styles.input}
@@ -52,18 +55,22 @@ export default function JoinForm(props) {
             type="text"
           ></input>
           <button
-            className={`${styles.btn_enter} ${styles.bgc_green}`}
+            className={`${styles.btn_enter} ${styles.red_color}`}
             onClick={() => props.btnFunction(room, name2, "join")}
           >
             Entrar
           </button>
-          <span className={styles.division}> ............. </span>
-          <button
-            className={`${styles.btn_enter} ${styles.bgc_dark_blue}`}
-            onClick={() => props.btnFunction(room, name2, "create")}
-          >
-            Criar Sala
-          </button>
+          {godMode && godMode === "André" && (
+            <>
+              <span className={styles.division}> ............. </span>
+              <button
+                className={`${styles.btn_enter} ${styles.bgc_dark_blue}`}
+                onClick={() => props.btnFunction(room, name2, "create")}
+              >
+                Criar Sala
+              </button>
+            </>
+          )}
         </>
       );
     case "host":
@@ -78,7 +85,9 @@ export default function JoinForm(props) {
             name="room"
             type="text"
           ></input>
-          {props.roomAvailability && <p> sala ocupada </p>}
+          {props.roomAvailability && (
+            <p> Essa sala já foi criada. Crie outra sala </p>
+          )}
           <label className={styles.label}>Quantidade de bolas</label>
           <input
             className={styles.input}
@@ -89,17 +98,8 @@ export default function JoinForm(props) {
             max={99}
             type="number"
           ></input>
-          <label>Escolha opção: </label>
-          <select
-            name="cars"
-            id="cars"
-            onChange={(e) => setGameOption(e.target.value)}
-          >
-            <option value="default">default</option>
-            <option value="new">new</option>
-          </select>
           <button
-            className={`${styles.btn_enter} ${styles.bgc_green}`}
+            className={`${styles.btn_enter} ${styles.red_color}`}
             onClick={() => props.btnFunction(room, qtdBalls, gameOption)}
           >
             Criar

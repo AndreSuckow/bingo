@@ -27,6 +27,24 @@ export default function Room() {
     socketInitializer(name);
   }, [name]);
 
+  // React.useEffect(() => {
+  //   console.log(cartela);
+  // }, [cartela]);
+
+  function findCartela(numero, socket) {
+    let cartelaLocal = localStorage.getItem("player-cartela");
+    if (!cartelaLocal) {
+      let cartela = numero;
+      setCartela(cartela);
+      localStorage.setItem("player-cartela", JSON.stringify(cartela));
+    } else {
+      let parsedCartela = cartelaLocal.split(",");
+      setCartela(parsedCartela);
+      console.log(socket);
+      socket.emit("player-with-cartela", parsedCartela);
+    }
+  }
+
   //set event listeners
   const socketInitializer = async (name_) => {
     try {
@@ -48,6 +66,7 @@ export default function Room() {
 
       socket.on("get-cartela", (msg) => {
         //get player raffled numbers
+        // findCartela(msg, socket);
         setCartela(msg);
       });
 
@@ -73,6 +92,7 @@ export default function Room() {
 
   const joinRoom = (room_, name_) => {
     socket.emit("join-room", room_);
+    console.log("join-room");
     socket.emit("send-to-host", { room: room_, name: name_, id: socket.id });
     setName2(name_);
     setPath("wait");
@@ -99,7 +119,6 @@ export default function Room() {
   };
 
   const displayChat = (option) => {
-    console.log(option);
     return (
       <ChatDisplay
         name={name2}
@@ -124,11 +143,11 @@ export default function Room() {
             <p> 5 ultimos sorteados </p>
             <BingoDisplay
               type="player"
-              max={5}
+              max={99} // ANDRÉ: mostra as últimas 5 bolas para o player
+              // valor anterior: 5
               numbers={raffleds}
-              title={"sei la"}
             />
-            <PlayerDisplay numbers={cartela.sort()} />
+            <PlayerDisplay numbers={cartela.sort((a, b) => a - b)} />
             <button className={styles.btn_bingo} onClick={bingo}>
               Bingo!
             </button>

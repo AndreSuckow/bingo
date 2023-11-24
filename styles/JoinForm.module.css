@@ -9,26 +9,29 @@
     align-items: center;
 }
 
-.label {
-    margin-bottom: 10px;
-}
 
 .input {
-    margin-bottom: 10px;
-    background-color: #E5E5E5;
-    border-radius: 15px;
+    outline: none;
+    margin-bottom: 15px;
     width: 300px;
     height: 50px;
     font-size: 20px;
-    border: 2px solid #262b29;
+    border: 0px;
+    border-bottom: 2px solid #c11f5a;
+    transition: 0.3s;
+    background: transparent;
 }
 
-.bgc_green {
-    background-color: #619B8A;
+.input:focus {
+    border-bottom: 2px solid #f18736;
+}
+
+.red_color {
+    background-color: #c11f5a;
 }
 
 .bgc_dark_blue {
-    background-color: rgb(35, 61, 77);
+    background-color: #1e8aa8;
 }
 
 .btn_enter {
@@ -39,6 +42,7 @@
     height: 50px;
     font-size: 18px;
     margin-top: 10px;
+    transition: 0.7s;
 }
 
 .btn_enter:hover {
@@ -47,7 +51,15 @@
 }
 
 .division {
+    text-align: center;
     font-size: 40px;
     color: rgb(35, 61, 77, 0.3);
     margin-bottom: 14px;
+    
+    background: linear-gradient(90deg, rgba(193, 31, 90, 1) 50%, rgba(222, 81, 38, 1) 50%);
+    background-clip: text;
+    -webkit-background-clip: text; /* Adicionando prefixo para navegadores Webkit (Chrome, Safari) */
+    color: transparent; /* Torna o texto transparente */
+
+
 }

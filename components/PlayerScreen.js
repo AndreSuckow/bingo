@@ -41,6 +41,8 @@ export default function PlayerScreen(props) {
 
     socket.on("get-cartela", (msg) => {
       //get player raffled numbers
+      console.log("PLAYER", msg);
+
       setCartela(msg);
     });
 

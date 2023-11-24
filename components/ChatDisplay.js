@@ -37,9 +37,11 @@ export default function ChatDisplay(props) {
       case "cartela":
         return (
           <div key={idx_} className={styles.msg_received}>
-            <p className={styles.msg_received_p}>seus numeros são:</p>
+            <p className={styles.msg_received_p}>
+              Os números da sua cartela são:
+            </p>
             <p className={styles.msg_received_p}>{e_.msg.toString()}</p>
-            <p className={styles.msg_received_p}>boa sorte!</p>
+            <p className={styles.msg_received_p}>Boa sorte!</p>
           </div>
         );
       case "sent-200":

@@ -39,12 +39,16 @@ export default function HostScreen(props) {
       console.log("connected");
     });
 
+    // host define os pleyers?
+    //
+
     socket.on("get-new-player", (msg) => {
       setPlayers((old) => {
         let cartela = createCartela(
           amount,
           old.filter((el) => el.cartela)
         );
+        console.log("cartela get-new-player", cartela);
         socket.emit("send-players", {
           room: room1,
           msg: [...old.map((el) => el.name), msg.name],
@@ -54,10 +58,11 @@ export default function HostScreen(props) {
         socket.emit("send-chat", {
           room: room1,
           name: "host",
-          msg: `${msg.name} entrou.`,
+          msg: `${msg.name} vai disputar o bingo!.`,
         });
         return [...old, { name: msg.name, id: msg.id, cartela: cartela }];
       });
+      console.log("cartela get-new-player");
       socket.emit("send-cartela", { to: msg.id });
     });
 

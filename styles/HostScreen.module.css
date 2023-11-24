@@ -7,7 +7,7 @@
 /* Create Room */
 
 .main {
-    background-color: #E5E5E5;
+    background-color: #df1313;
     min-height: 100vh;
     padding: 4rem 0;
     flex: 1;
@@ -19,6 +19,15 @@
 
 .label {
     margin-bottom: 10px;
+}
+
+.game_profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    background: #c11f5a;
+    flex-direction: column;
 }
 
 .title {
@@ -39,7 +48,7 @@
 }
 
 .btn_enter {
-    background-color: #619B8A;
+    background-color: #c11f5a;
     color: #E5E5E5;
     border: none;
     border-radius: 15px;
@@ -123,21 +132,39 @@
 /* Play Room */
 
 .main_play {
-    background-color: #619B8A;
-    background-image: url("/cartographer.png");
+    background-image: url("/public/background.png");
     min-height: 100vh;
     justify-content: center;
-    align-items: center;
     flex: 1;
     display: flex;
+    width: 100%;
 }
 
 .div_grid_2 {
-    padding: 0 2rem;
-    width: 50%;
+    padding: 2rem 2rem;
     max-width: 960px;
     min-height: 80vh;
     float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.div_grid_2 p {
+    font-weight: 800;
+}
+
+.div_grid_2 button {
+    background-color: #c11f5a;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-weight: 800;
+    letter-spacing: 5px;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 900px) {
@@ -150,11 +177,12 @@
         
     }
     .div_grid_2 {
-        padding: 0 30px;
         width: 100%;
-        display: inline-block;
         clear: both;
+        min-height: 0;
+        padding: 0;
     }
+    
 }
 
 /* BINGO */

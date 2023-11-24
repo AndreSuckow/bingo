@@ -9,13 +9,11 @@ export default function CreateHost(props) {
 
   const [thereIsRoom, setThereIsRoom] = React.useState(false);
 
-  const redirectHost = async (room_, qtdBalls_, gameOption_) => {
+  const redirectHost = async (room_, qtdBalls_) => {
     const res = await fetch(`/api/socket?option=room&room=${room_}`);
     const posts = await res.json();
     if (!posts.thereIs) {
-      router.push(
-        `host/${room_}?qtdBalls=${qtdBalls_}&gameOption=${gameOption_}`
-      );
+      router.push(`host/${room_}?qtdBalls=${qtdBalls_}`);
     } else {
       setThereIsRoom(true);
     }
@@ -26,11 +24,13 @@ export default function CreateHost(props) {
       <Head>
         <title>Bingo! - Criar Sala</title>
       </Head>
-      <JoinForm
-        type="host"
-        btnFunction={redirectHost}
-        roomAvailability={thereIsRoom}
-      />
+      <div className={styles.flex_collum}>
+        <JoinForm
+          type="host"
+          btnFunction={redirectHost}
+          roomAvailability={thereIsRoom}
+        />
+      </div>
     </section>
   );
 }

@@ -12,7 +12,7 @@ export function scrollToEnd(ref, options) {
 }
 
 export function test() {
-  console.loh("hi");
+  console.log("hi");
 }
 
 const animations = { scrollToEnd, test };
