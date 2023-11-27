@@ -111,6 +111,7 @@ export default function Host() {
             <p>
               Sala: {host} - Quantidade de bolas: {qtdBalls}
             </p>
+            <p>Usuários já logados na sala aguardando:</p>
             {players.map((e, idx) => {
               return (
                 <div key={idx}>
