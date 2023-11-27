@@ -114,7 +114,7 @@ export default function Room() {
       setBingoWinner(name2);
       socket.emit("send-bingo", room, name2);
     } else {
-      console.log("NÃO FOI BINGO");
+      window.alert("Para ser bingo, toda a sua cartela precisa ser sorteada.");
     }
   };
 
@@ -139,18 +139,22 @@ export default function Room() {
         <>
           {displayChat("on-game")}
           <section className={styles.main_play}>
-            <p> {name2}</p>
-            <p> 5 últimas bolas sorteadas </p>
-            <BingoDisplay
-              type="player"
-              max={99} // ANDRÉ: mostra as últimas 5 bolas para o player
-              // valor anterior: 5
-              numbers={raffleds}
-            />
-            <PlayerDisplay numbers={cartela.sort((a, b) => a - b)} />
-            <button className={styles.btn_bingo} onClick={bingo}>
-              Bingo!
-            </button>
+            <div className={styles.info}>
+              <p>{name2}</p>
+              <p>Marque as bolas sorteadas:</p>
+              <PlayerDisplay numbers={cartela.sort((a, b) => a - b)} />
+            </div>
+            <div className={styles.riffled_info}>
+              <p> 10 últimas bolas sorteadas:</p>
+              <BingoDisplay
+                type="player"
+                max={10} // ANDRÉ: mostra as últimas 5 bolas para o player
+                numbers={raffleds}
+              />
+              <button className={styles.btn_bingo} onClick={bingo}>
+                Bingo!
+              </button>
+            </div>
           </section>
         </>
       );

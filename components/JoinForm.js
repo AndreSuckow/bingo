@@ -58,6 +58,10 @@ export default function JoinForm(props) {
             className={`${styles.btn_enter} ${styles.red_color}`}
             onClick={() => props.btnFunction(room, name2, "join")}
           >
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
             Entrar
           </button>
           {godMode && godMode === "André" && (
@@ -94,7 +98,7 @@ export default function JoinForm(props) {
             value={qtdBalls}
             onChange={(e) => setQtdBalls(e.target.value)}
             name="qtdBalls"
-            min={50}
+            min={30}
             max={99}
             type="number"
           ></input>

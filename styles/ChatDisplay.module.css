@@ -1,13 +1,11 @@
 .main {
     width: 100%;
-    background-color: #E5E5E5;
     position: absolute;
-    background-color: #e5e5e5;
     background-image: url("../public/background.png");
-    min-height: 100vh;
-    max-height: 100vh;
     overflow: hidden;
 }
+
+
 .test {
     float: left;
     clear: both;
@@ -20,7 +18,7 @@
     width: 100vw;
     /* overflow: scroll; */
     overflow-x: hidden;
-    height: 94vh;
+    height: 100vh;
     background-color: transparent;
 }
 
@@ -98,6 +96,8 @@
     justify-content: center;
     flex-direction: row;
     width: 100%;
+    position: fixed;
+    bottom: 0;
 }
 
 .input_box {

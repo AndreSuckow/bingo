@@ -109,7 +109,7 @@ export default function Host() {
         <>
           <div className={styles.game_profile}>
             <p>
-              Sala: {host} - quantidade de bolas : {qtdBalls}
+              Sala: {host} - Quantidade de bolas: {qtdBalls}
             </p>
             {players.map((e, idx) => {
               return (

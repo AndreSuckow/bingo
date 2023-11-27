@@ -1,6 +1,9 @@
 .main {
     text-align: center;
-    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    min-height: 330px;
 }
 
 
@@ -13,15 +16,16 @@
     border-radius: 35px;
     margin: 5px;
     float: left;
-    flex: 1;
+    /* flex: 1; */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-image: radial-gradient(circle at top, #eae7e7, 20% ,#c11f5a);
-    -webkit-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
-    box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 1px 15px 17px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 15px 17px -7px rgba(0,0,0,0.75);
+    box-shadow: 1px 15px 17px -7px rgba(0,0,0,0.75);
+    animation: pulsa 1s infinite alternate;
 }
 
 .first_ball p {
@@ -41,10 +45,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: radial-gradient(circle at top, #eae7e7, 20% ,#c11f5a);
-    -webkit-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
-    -moz-box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
-    box-shadow: 1px 25px 17px -7px rgba(0,0,0,0.75);
+    background-image: radial-gradient(circle at top, #eae7e7, 20% ,#2b2628);
+    -webkit-box-shadow: 1px 15px 17px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 15px 17px -7px rgba(0,0,0,0.75);
+    box-shadow: 1px 15px 17px -7px rgba(0,0,0,0.75);
 }
 
 .balls p {
@@ -106,7 +110,17 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    animation: pulsa 1s infinite alternate;
 }
+
+@keyframes pulsa {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.2);
+    }
+  }
 
 .four_main_ball {
     width: 70px;
@@ -122,4 +136,16 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+@media  (max-width: 900px) {
+    .all_balls {
+        width: 35px;
+        height: 35px;
+    }
+
+    .all_balls_sorted {
+        width: 35px;
+        height: 35px;
+    }
 }

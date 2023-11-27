@@ -35,7 +35,7 @@
 }
 
 .btn_enter {
-    color: #E5E5E5;
+    color: #fff;
     border: none;
     border-radius: 15px;
     width: 300px;
@@ -43,12 +43,20 @@
     font-size: 18px;
     margin-top: 10px;
     transition: 0.7s;
+    margin-top: 3rem;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 .btn_enter:hover {
-    background-color: #FE7F2D;
+    /* background-color: #FE7F2D; */
     cursor: pointer;
+    letter-spacing: 4px;
+    background-color: #FE7F2D;
+    color: #ffffff;
+    box-shadow: 0 0 5px #FE7F2D, 0 0 15px #FE7F2D, 0 0 30px #FE7F2D, 0 0 60px #FE7F2D;
 }
+
 
 .division {
     text-align: center;

@@ -41,18 +41,7 @@ export const createCartela = (amount, cartelas) => {
       return Math.floor(Math.random() * max);
     }
 
-    let cartelaAmount;
-    switch (generateRandomInteger(3)) {
-      case 0:
-        cartelaAmount = 16;
-        break;
-      case 1:
-        cartelaAmount = 17;
-        break;
-      case 2:
-        cartelaAmount = 18;
-        break;
-    }
+    let cartelaAmount = 15;
 
     for (let i = 1; i <= cartelaAmount; i++) {
       let riffled = generateRandomInteger(numbers.length);
