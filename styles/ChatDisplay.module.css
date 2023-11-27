@@ -3,6 +3,7 @@
     position: absolute;
     background-image: url("../public/background.png");
     overflow: hidden;
+    z-index: 1;
 }
 
 
@@ -33,7 +34,7 @@
     color: #fff;
     float: right;
     clear: both;
-    margin: 5px;
+    margin: 5px 15px;
     min-width: 150px;
     max-width: 95%;
     background-color: #1e8aa8;
@@ -167,9 +168,3 @@
     top: 3px;
     right: -3px
 }
-
-
-
-@media (max-width: 1200px) {
-    
-  }
