@@ -44,11 +44,19 @@ export default function HostScreen(props) {
 
     socket.on("get-new-player", (msg) => {
       setPlayers((old) => {
-        let cartela = createCartela(
-          amount,
-          old.filter((el) => el.cartela)
-        );
-        console.log("cartela get-new-player", cartela);
+        console.log("abacai");
+        console.log(JSON.stringify(msg));
+        console.log(JSON.stringify(old));
+        const existingCartela = old.find((player) => player.name === msg.name);
+        if (existingCartela) {
+          console.log("Cartela ja existe");
+        }
+        const cartela =
+          existingCartela ??
+          createCartela(
+            amount,
+            old.filter((el) => el.cartela)
+          );
         socket.emit("send-players", {
           room: room1,
           msg: [...old.map((el) => el.name), msg.name],
@@ -62,7 +70,6 @@ export default function HostScreen(props) {
         });
         return [...old, { name: msg.name, id: msg.id, cartela: cartela }];
       });
-      console.log("cartela get-new-player");
       socket.emit("send-cartela", { to: msg.id });
     });
 

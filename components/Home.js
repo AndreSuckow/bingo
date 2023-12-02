@@ -25,6 +25,10 @@ export default function Home(props) {
             window.alert("Nenhuma sala encontrada!");
             return;
           }
+          if (!name_) {
+            window.alert("Você precisa digitar seu nome!");
+            return;
+          }
           router.push(`${room_}?name=${name_}`);
         });
 

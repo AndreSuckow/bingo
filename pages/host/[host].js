@@ -16,6 +16,19 @@ let balls = {
   riffleds: [],
 };
 
+function findCartelaPlayer(playerName, bingoName, players) {
+  let cartelas = localStorage.getItem("cartela_players");
+
+  if (!cartelas[`${playerName}_${bingoName}`]) {
+  }
+
+  if (!cartelaLocal) {
+    localStorage.setItem(keyStorage, JSON.stringify());
+  } else {
+    let parsedCartela = cartelaLocal.split(",");
+  }
+}
+
 export default function Host() {
   const router = useRouter();
   const { host, qtdBalls } = router.query;
@@ -47,21 +60,23 @@ export default function Host() {
         setChat((prev) => [...prev, msg]);
       });
 
-      socket.on("player-with-cartela", (msg) => {
-        console.log("HOST JA TENHO A CARTELA", msg);
-      });
-
       socket.on("get-new-player", (msg) => {
         setPlayers((old) => {
-          let cartela = createCartela(
-            Number(qtdBalls),
-            old.filter((el) => el.cartela)
-          );
+          console.log(JSON.stringify(msg));
+          console.log(JSON.stringify(old));
+          // valida o player pelo nome, caso exista ao relogar ele fornece a cartela antiga.
+          const existingPlayer = old.find((player) => player.name === msg.name);
+          if (existingPlayer) {
+            console.log("Cartela ja existe");
+          }
+          const cartela =
+            existingPlayer?.cartela ??
+            createCartela(
+              Number(qtdBalls),
+              old.filter((el) => el.cartela)
+            );
 
-          console.log("cartela get-new-player", {
-            to: msg.id,
-            cartela: cartela,
-          });
+          console.log("cartela get-new-player", cartela, msg.name);
 
           socket.emit("send-players", {
             room: host,

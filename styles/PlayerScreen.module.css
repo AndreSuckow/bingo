@@ -91,7 +91,7 @@
     min-height: 100vh;
     padding: 4rem 0;
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: auto 215px;
 }
 
 .info {
@@ -110,6 +110,8 @@
     align-items: center;
     justify-self: center;
     flex-direction: column;
+    margin-right: 25px;
+    width: 100%;
 }
 
 .riffled_info p {
@@ -120,10 +122,13 @@
     background-color: #c11f5a;
     margin-top: 40px;
     width: 200px;
-    height: 80px;
+    height: 65px;
     border-radius: 15px;
-    font-size: 30px;
+    font-size: 25px;
     cursor: pointer;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
 /* BINGO */
@@ -142,4 +147,11 @@
 
 .bingo_winner {
     font-size: 50px;
+}
+
+
+@media (max-width: 675px) {
+    .main_play {
+        grid-template-columns: 1fr;
+    }
 }

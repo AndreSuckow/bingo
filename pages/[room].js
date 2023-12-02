@@ -31,20 +31,6 @@ export default function Room() {
   //   console.log(cartela);
   // }, [cartela]);
 
-  function findCartela(numero, socket) {
-    let cartelaLocal = localStorage.getItem("player-cartela");
-    if (!cartelaLocal) {
-      let cartela = numero;
-      setCartela(cartela);
-      localStorage.setItem("player-cartela", JSON.stringify(cartela));
-    } else {
-      let parsedCartela = cartelaLocal.split(",");
-      setCartela(parsedCartela);
-      console.log(socket);
-      socket.emit("player-with-cartela", parsedCartela);
-    }
-  }
-
   //set event listeners
   const socketInitializer = async (name_) => {
     try {
@@ -92,7 +78,6 @@ export default function Room() {
 
   const joinRoom = (room_, name_) => {
     socket.emit("join-room", room_);
-    console.log("join-room");
     socket.emit("send-to-host", { room: room_, name: name_, id: socket.id });
     setName2(name_);
     setPath("wait");
@@ -143,17 +128,17 @@ export default function Room() {
               <p>{name2}</p>
               <p>Marque as bolas sorteadas:</p>
               <PlayerDisplay numbers={cartela.sort((a, b) => a - b)} />
-            </div>
-            <div className={styles.riffled_info}>
-              <p> 10 últimas bolas sorteadas:</p>
-              <BingoDisplay
-                type="player"
-                max={10} // ANDRÉ: mostra as últimas 5 bolas para o player
-                numbers={raffleds}
-              />
               <button className={styles.btn_bingo} onClick={bingo}>
                 Bingo!
               </button>
+            </div>
+            <div className={styles.riffled_info}>
+              <p>Bolas sorteadas:</p>
+              <BingoDisplay
+                type="player"
+                max={99} // ANDRÉ: mostra as últimas 5 bolas para o player
+                numbers={raffleds}
+              />
             </div>
           </section>
         </>

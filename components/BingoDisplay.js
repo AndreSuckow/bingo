@@ -30,24 +30,23 @@ export default function BingoDisplay(props) {
       );
     case "player":
       return (
-        <section className={styles.main}>
-          <p>{props.title} </p>
-
+        <>
           {props.numbers[0] && (
             <div className={styles.first_ball}>
               <p> {props.numbers[0]}</p>
             </div>
           )}
-
-          {props.numbers &&
-            props.numbers.slice(1, props.max).map((el, idx) => {
-              return (
-                <div className={styles.balls} key={idx}>
-                  <p> {el} </p>
-                </div>
-              );
-            })}
-        </section>
+          <section className={styles.main}>
+            {props.numbers &&
+              props.numbers.slice(1, props.max).map((el, idx) => {
+                return (
+                  <div className={styles.balls} key={idx}>
+                    <p> {el} </p>
+                  </div>
+                );
+              })}
+          </section>
+        </>
       );
     case "all":
       return (
