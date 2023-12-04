@@ -11,8 +11,24 @@
 }
 
 .title {
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Quicksand';
     text-align: center;
     font-size: 10vh;
     user-select: none;
+    color: #c11f5a;
 }
+
+.btnNextGame {
+  border: none;
+  width: 7rem;
+  height: 1.5rem;
+  background-color: #c11f5a;
+  cursor: pointer;
+  color: aliceblue;
+  transition: 0.3s;
+}
+
+.btnNextGame:hover {
+  transform: scale(1.2);
+}
+
