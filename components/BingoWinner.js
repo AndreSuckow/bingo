@@ -13,9 +13,7 @@ export default function BingoWinner(props) {
     <section className={styles.main}>
       <p className={styles.title}>{props.winner} venceu!</p>
       <button className={styles.btnNextGame}>
-        <a href={`http://localhost:3000/bingo${RodadaBingo}?name=${name}`}>
-          Próximo jogo
-        </a>
+        <a href={`/bingo${RodadaBingo}?name=${name}`}>Próximo jogo</a>
       </button>
     </section>
   );
