@@ -13,7 +13,9 @@ export default function BingoWinner(props) {
     <section className={styles.main}>
       <p className={styles.title}>{props.winner} venceu!</p>
       <button className={styles.btnNextGame}>
-        <a href={`/bingo${RodadaBingo}?name=${name}`}>Próximo jogo</a>
+        <a href="https://bingo-production-367f.up.railway.app/">
+          Voltar para o menu inicial
+        </a>
       </button>
     </section>
   );
