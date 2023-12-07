@@ -152,8 +152,7 @@ export default function Room() {
                 ref={(ref) => {
                   audioRef = ref;
                   if (audioRef) {
-                    console.log(audioRef);
-                    audioRef.volume = 0.05;
+                    audioRef.volume = 0.01;
                   }
                 }}
                 autoPlay
