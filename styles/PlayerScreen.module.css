@@ -138,10 +138,6 @@
     width: 150px;
     width: 8vw;
     height: 3rem;
-    background-image: url("../public/sound_on.gif");
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-color: transparent;
     border-style: none;
     cursor: pointer;
 }

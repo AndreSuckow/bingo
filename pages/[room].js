@@ -84,6 +84,7 @@ export default function Room() {
       audioRef.current.play();
     } else {
       audioRef.current.pause();
+      audioRef.style.background = "../public/sound_off.png";
     }
 
     setSoundOn(!soundOn);
@@ -144,8 +145,13 @@ export default function Room() {
               <button className={styles.btn_bingo} onClick={bingo}>
                 Bingo!
               </button>
-              <button className={styles.btn_sound} onClick={SoundOfBingo}>
-                {/* {`${soundOn}`} */}
+              {/* <button className={styles.btn_sound} onClick={SoundOfBingo}>
+                {soundOn && (
+                  <img className={styles.gif} src="/sound_on.gif"></img>
+                )}
+                {!soundOn && (
+                  <img className={styles.gif} src="/sound_off.png"></img>
+                )}
               </button>
               <audio
                 src="/sorteio.mp3"
@@ -156,13 +162,13 @@ export default function Room() {
                   }
                 }}
                 autoPlay
-              ></audio>
+              ></audio> */}
             </div>
             <div className={styles.riffled_info}>
               <p>Bolas sorteadas:</p>
               <BingoDisplay
                 type="player"
-                max={99} // ANDRÉ: mostra as últimas 5 bolas para o player
+                max={99} // ANDRÉ: mostra as últimas bolas para o player
                 numbers={raffleds}
               />
             </div>

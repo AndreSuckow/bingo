@@ -17,16 +17,18 @@
     color: #c11f5a;
 }
 
-.btnNextGame {
+.btnGoToMenu {
   border: none;
   width: 7rem;
   background-color: #c11f5a;
   cursor: pointer;
   color: aliceblue;
   transition: 0.3s;
+  padding: 0.5rem;
+  border-radius: 5px;
 }
 
-.btnNextGame:hover {
+.btnGoToMenu:hover {
   transform: scale(1.2);
 }
 

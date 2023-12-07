@@ -64,7 +64,7 @@ export default function JoinForm(props) {
             <span></span>
             Entrar
           </button>
-          {godMode && godMode === "André" && (
+          {godMode && godMode === "Admin" && (
             <>
               <span className={styles.division}> ............. </span>
               <button
