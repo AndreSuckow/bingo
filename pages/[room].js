@@ -76,6 +76,19 @@ export default function Room() {
     }
   };
 
+  let audioRef = React.useRef();
+
+  const [soundOn, setSoundOn] = React.useState(true);
+  function SoundOfBingo() {
+    if (!soundOn) {
+      audioRef.current.play();
+    } else {
+      audioRef.current.pause();
+    }
+
+    setSoundOn(!soundOn);
+  }
+
   const joinRoom = (room_, name_) => {
     socket.emit("join-room", room_);
     socket.emit("send-to-host", { room: room_, name: name_, id: socket.id });
@@ -131,6 +144,20 @@ export default function Room() {
               <button className={styles.btn_bingo} onClick={bingo}>
                 Bingo!
               </button>
+              <button className={styles.btn_sound} onClick={SoundOfBingo}>
+                {/* {`${soundOn}`} */}
+              </button>
+              <audio
+                src="/sorteio.mp3"
+                ref={(ref) => {
+                  audioRef = ref;
+                  if (audioRef) {
+                    console.log(audioRef);
+                    audioRef.volume = 0.05;
+                  }
+                }}
+                autoPlay
+              ></audio>
             </div>
             <div className={styles.riffled_info}>
               <p>Bolas sorteadas:</p>
