@@ -145,7 +145,7 @@ export default function Room() {
               <button className={styles.btn_bingo} onClick={bingo}>
                 Bingo!
               </button>
-              {/* <button className={styles.btn_sound} onClick={SoundOfBingo}>
+              <button className={styles.btn_sound} onClick={SoundOfBingo}>
                 {soundOn && (
                   <img className={styles.gif} src="/sound_on.gif"></img>
                 )}
@@ -162,7 +162,7 @@ export default function Room() {
                   }
                 }}
                 autoPlay
-              ></audio> */}
+              ></audio>
             </div>
             <div className={styles.riffled_info}>
               <p>Bolas sorteadas:</p>
