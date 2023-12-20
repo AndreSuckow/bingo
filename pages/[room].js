@@ -79,12 +79,28 @@ export default function Room() {
   let audioRef = React.useRef();
 
   const [soundOn, setSoundOn] = React.useState(true);
+  // function SoundOfBingo() {
+  //   if (!soundOn) {
+  //     audioRef.current.play();
+  //   } else {
+  //     audioRef.current.pause();
+  //     audioRef.style.background = "../public/sound_off.png";
+  //   }
+
+  //   setSoundOn(!soundOn);
+  // }
+
   function SoundOfBingo() {
     if (!soundOn) {
-      audioRef.current.play();
+      if (audioRef.current) {
+        audioRef.current.play();
+      }
     } else {
-      audioRef.current.pause();
-      audioRef.style.background = "../public/sound_off.png";
+      if (audioRef.current) {
+        audioRef.current.pause();
+        // Corrija a linha abaixo para modificar o estilo corretamente
+        audioRef.current.style.background = "url('../public/sound_off.png')";
+      }
     }
 
     setSoundOn(!soundOn);

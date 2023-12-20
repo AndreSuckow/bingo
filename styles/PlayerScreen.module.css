@@ -137,9 +137,13 @@
     right: 5%;
     width: 150px;
     width: 8vw;
-    height: 3rem;
     border-style: none;
     cursor: pointer;
+    background: transparent;
+}
+
+.gif {
+    width: 100%;
 }
 
 /* BINGO */
