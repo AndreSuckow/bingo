@@ -180,6 +180,25 @@
     cursor: pointer;
 }
 
+/* BINGO */
+
+.bingo {
+    background: rgb(200,79,0);
+    background: linear-gradient(129deg, rgba(200,79,0,1) 43%, rgba(254,127,45,1) 100%);
+    min-height: 100vh;
+    padding: 4rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bingo_winner {
+    font-size: 50px;
+}
+
+
 @media screen and (max-width: 1000px) {
     .div_grid_2 {
         padding: 3rem 3rem;
@@ -238,20 +257,8 @@
     }
 }
 
-/* BINGO */
+@media (max-width: 430px) and (orientation: portrait) {
+    
+ }
 
-.bingo {
-    background: rgb(200,79,0);
-    background: linear-gradient(129deg, rgba(200,79,0,1) 43%, rgba(254,127,45,1) 100%);
-    min-height: 100vh;
-    padding: 4rem 0;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
 
-.bingo_winner {
-    font-size: 50px;
-}

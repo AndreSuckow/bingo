@@ -13,7 +13,7 @@ export default function BingoWinner(props) {
     <section className={styles.main}>
       <p className={styles.title}>{props.winner} venceu!</p>
       <button className={styles.btnGoToMenu}>
-        <a href="https://bingo-production-816a.up.railway.app/">
+        <a href="https://bingo-production-ad0b.up.railway.app">
           Voltar para o menu inicial
         </a>
       </button>
