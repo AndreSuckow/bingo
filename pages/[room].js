@@ -76,7 +76,6 @@ export default function Room() {
 
   const [soundOn, setSoundOn] = React.useState(true);
   function SoundOfBingo() {
-    debugger;
     if (!soundOn) {
       if (audioRef) {
         audioRef.play();

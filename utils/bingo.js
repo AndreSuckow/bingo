@@ -1,6 +1,5 @@
 // exporta funcão bingo para ser usada em outros módulos
 export const bingo = (amount) => {
-  // debugger;
   let numbers = [];
   let riffledNumbers = [];
 

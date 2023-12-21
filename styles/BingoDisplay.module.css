@@ -17,6 +17,7 @@
     background-color: #c11f5a;
     border-radius: 35px;
     margin: 5px;
+    font-size: 40px;
     float: left;
     /* flex: 1; */
     display: flex;
