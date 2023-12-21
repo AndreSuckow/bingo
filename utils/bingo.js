@@ -41,7 +41,7 @@ export const createCartela = (amount, cartelas) => {
       return Math.floor(Math.random() * max);
     }
 
-    let cartelaAmount = 15;
+    let cartelaAmount = 25;
 
     for (let i = 1; i <= cartelaAmount; i++) {
       let riffled = generateRandomInteger(numbers.length);

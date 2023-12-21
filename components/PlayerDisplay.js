@@ -9,7 +9,7 @@ export default function PlayerDisplay(props) {
 
   return (
     <section className={styles.main}>
-      {props.numbers &&
+      {/* {props.numbers &&
         props.numbers.slice(0, 3).map((el, idx) => {
           return (
             <div onClick={changeClass} className={styles.number} key={idx}>
@@ -74,12 +74,14 @@ export default function PlayerDisplay(props) {
               <p> {el} </p>
             </div>
           );
-        })}
+        })} */}
 
       {props.numbers &&
-        [...Array(27 - (props.numbers.length + 8))].map((el, idx) => {
+        props.numbers.map((el, idx) => {
+          // [...Array(props.numbers.length)].map((el, idx) => {
+          //[...Array(27 - (props.numbers.length + 8))].map((el, idx) => {
           return (
-            <div className={styles.number} key={idx}>
+            <div onClick={changeClass} className={styles.number} key={idx}>
               <p> {el} </p>
             </div>
           );

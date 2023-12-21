@@ -44,7 +44,6 @@ export default function HostScreen(props) {
 
     socket.on("get-new-player", (msg) => {
       setPlayers((old) => {
-        console.log("abacai");
         console.log(JSON.stringify(msg));
         console.log(JSON.stringify(old));
         const existingCartela = old.find((player) => player.name === msg.name);

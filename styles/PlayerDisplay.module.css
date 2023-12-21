@@ -1,6 +1,6 @@
 .main {
     display: grid;
-    grid-template-columns: repeat(9, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     column-gap: 5px;
     row-gap: 5px;
     cursor: url('../public/cursor-de-lapis.png') 0 0, auto;

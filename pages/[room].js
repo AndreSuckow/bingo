@@ -27,10 +27,6 @@ export default function Room() {
     socketInitializer(name);
   }, [name]);
 
-  // React.useEffect(() => {
-  //   console.log(cartela);
-  // }, [cartela]);
-
   //set event listeners
   const socketInitializer = async (name_) => {
     try {
@@ -79,30 +75,18 @@ export default function Room() {
   let audioRef = React.useRef();
 
   const [soundOn, setSoundOn] = React.useState(true);
-  // function SoundOfBingo() {
-  //   if (!soundOn) {
-  //     audioRef.current.play();
-  //   } else {
-  //     audioRef.current.pause();
-  //     audioRef.style.background = "../public/sound_off.png";
-  //   }
-
-  //   setSoundOn(!soundOn);
-  // }
-
   function SoundOfBingo() {
+    debugger;
     if (!soundOn) {
-      if (audioRef.current) {
-        audioRef.current.play();
+      if (audioRef) {
+        audioRef.play();
       }
     } else {
-      if (audioRef.current) {
-        audioRef.current.pause();
-        // Corrija a linha abaixo para modificar o estilo corretamente
-        audioRef.current.style.background = "url('../public/sound_off.png')";
+      if (audioRef) {
+        audioRef.pause();
+        audioRef.style.background = "url('../public/sound_off.png')";
       }
     }
-
     setSoundOn(!soundOn);
   }
 
@@ -175,6 +159,7 @@ export default function Room() {
                   audioRef = ref;
                   if (audioRef) {
                     audioRef.volume = 0.01;
+                    audioRef.loop = true;
                   }
                 }}
                 autoPlay
